@@ -63,7 +63,15 @@ def stream_to_lsl():
     def callback(left_pd, right_pd, left_gd, right_gd):
         pd_outlet.push_sample([left_pd, right_pd])
         gd_outlet.push_sample(left_gd + right_gd)
-    stream_gaze_data(callback)
+
+    while True:
+        try:
+            stream_gaze_data(callback)
+        except KeyboardInterrupt:
+            input("Interrupted, press enter to exit\n")
+            return
+        except Exception:
+            pass
 
 
 if __name__ == '__main__':
