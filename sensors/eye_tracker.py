@@ -17,9 +17,9 @@ EYE_KEY = "eye"
 
 def stream_gaze_data(callback, timeout=1, smooth_zeros=True):
     """
-    Stream pupil diamater info from Tobii eye tracker to a callback function
+    Stream gaze info from Tobii eye tracker to a callback function
 
-    :param callback: a function that receives 2 arguments (left_diameter, right_diameter)
+    :param callback: a function that receives (left_diameter, right_diameter, left_direction, right_direction)
     :param timeout: maximum timeout to receive data
     :param smooth_zeros: whether to ignore zero diameter (caused by blinking usually)
     """
